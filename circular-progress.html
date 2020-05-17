@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        :root {
+            --bg-color: white;
+            --color: rgb(33, 150, 243);
+            --radius: 5em;
+            --thickness: 0.35em;
+        }
+
+        body {
+            background: var(--bg-color);
+        }
+
+        .circular-progress {
+            display: flex;
+            border-radius: 50%;
+            
+            width: var(--radius);
+            height: var(--radius);
+            padding: var(--thickness);
+
+            background: var(--color);
+            background-image: linear-gradient(240deg, transparent 50%, var(--bg-color) 50%), linear-gradient(90deg, var(--bg-color) 50%, transparent 50%);
+
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+
+        .circular-progress-inner {
+            margin: auto;
+            vertical-align: center;
+            width: calc(var(--radius) - (var(--thickness)));
+            height: calc(var(--radius) - (var(--thickness)));
+            border-radius: 50%;
+            background: var(--bg-color);
+        }
+
+        @-webkit-keyframes spin {
+            /* Safari */
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: row; justify-content: center; margin-top: 100px;">
+    <div class="circular-progress">
+        <div class="circular-progress-inner"></div>
+    </div>
+</body>
+</html>
